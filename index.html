@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Lite - Posting Foto</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Navigasi -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fas fa-camera"></i>
+                <h1>Instagram Lite</h1>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active" data-page="home">
+                    <i class="fas fa-home"></i>
+                    <span>Beranda</span>
+                </a>
+                <a href="#" class="nav-link" data-page="explore">
+                    <i class="fas fa-compass"></i>
+                    <span>Jelajahi</span>
+                </a>
+                <a href="#" class="nav-link" data-page="profile">
+                    <i class="fas fa-user"></i>
+                    <span>Profil</span>
+                </a>
+                <a href="#" class="nav-link" data-page="upload">
+                    <i class="fas fa-plus-square"></i>
+                    <span>Upload</span>
+                </a>
+            </nav>
+            <div class="user-menu">
+                <button id="themeToggle" class="icon-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="notifBtn" class="icon-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notif-badge">3</span>
+                </button>
+                <div class="user-avatar">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="User Avatar">
+                </div>
+            </div>
+        </header>
+
+        <!-- Konten Utama -->
+        <main class="main-content">
+            <!-- Halaman Beranda -->
+            <div class="page active" id="homePage">
+                <div class="feed-container">
+                    <div class="stories">
+                        <h2 class="section-title">Cerita</h2>
+                        <div class="stories-list" id="storiesList">
+                            <!-- Stories akan dimuat di sini -->
+                        </div>
+                    </div>
+                    
+                    <div class="feed" id="photoFeed">
+                        <!-- Postingan foto akan dimuat di sini -->
+                    </div>
+                </div>
+                
+                <aside class="sidebar">
+                    <div class="profile-summary">
+                        <div class="profile-header">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profil">
+                            <div class="profile-info">
+                                <h3>John Doe</h3>
+                                <p>@johndoe</p>
+                            </div>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <strong id="userPostCount">12</strong>
+                                <span>Postingan</span>
+                            </div>
+                            <div class="stat">
+                                <strong id="userFollowerCount">450</strong>
+                                <span>Pengikut</span>
+                            </div>
+                            <div class="stat">
+                                <strong id="userFollowingCount">380</strong>
+                                <span>Mengikuti</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="suggestions">
+                        <div class="suggestions-header">
+                            <h3>Disarankan untuk Anda</h3>
+                            <a href="#" class="see-all">Lihat semua</a>
+                        </div>
+                        <div class="suggestions-list" id="suggestionsList">
+                            <!-- Saran akun akan dimuat di sini -->
+                        </div>
+                    </div>
+                    
+                    <div class="trending">
+                        <h3>Trending Sekarang</h3>
+                        <div class="trending-tags" id="trendingTags">
+                            <!-- Tag trending akan dimuat di sini -->
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Halaman Jelajahi -->
+            <div class="page" id="explorePage">
+                <div class="explore-header">
+                    <h2>Jelajahi</h2>
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Cari foto, pengguna, atau tagar...">
+                    </div>
+                </div>
+                
+                <div class="explore-grid" id="exploreGrid">
+                    <!-- Grid foto untuk jelajahi -->
+                </div>
+            </div>
+
+            <!-- Halaman Profil -->
+            <div class="page" id="profilePage">
+                <div class="profile-header-full">
+                    <div class="profile-cover">
+                        <div class="profile-avatar-large">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Profil">
+                            <button class="edit-profile-btn">Edit Profil</button>
+                        </div>
+                        <div class="profile-details">
+                            <h2>John Doe</h2>
+                            <p class="username">@johndoe</p>
+                            <p class="bio">Fotografer amatir | Pecinta alam | Travel enthusiast</p>
+                            <div class="profile-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</span>
+                                <span><i class="fas fa-link"></i> johndoe-portfolio.com</span>
+                                <span><i class="fas fa-calendar-alt"></i> Bergabung Juni 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-tabs">
+                        <button class="profile-tab active" data-tab="posts">
+                            <i class="fas fa-th"></i> Postingan
+                        </button>
+                        <button class="profile-tab" data-tab="albums">
+                            <i class="fas fa-images"></i> Album
+                        </button>
+                        <button class="profile-tab" data-tab="saved">
+                            <i class="fas fa-bookmark"></i> Disimpan
+                        </button>
+                        <button class="profile-tab" data-tab="tagged">
+                            <i class="fas fa-tag"></i> Ditandai
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <div class="tab-content active" id="postsTab">
+                        <div class="profile-posts-grid" id="profilePosts">
+                            <!-- Postingan profil akan dimuat di sini -->
+                        </div>
+                    </div>
+                    <div class="tab-content" id="albumsTab">
+                        <div class="albums-container" id="profileAlbums">
+                            <!-- Album profil akan dimuat di sini -->
+                        </div>
+                    </div>
+                    <div class="tab-content" id="savedTab">
+                        <div class="saved-posts-grid" id="savedPosts">
+                            <!-- Postingan disimpan akan dimuat di sini -->
+                        </div>
+                    </div>
+                    <div class="tab-content" id="taggedTab">
+                        <div class="tagged-posts-grid" id="taggedPosts">
+                            <!-- Postingan ditandai akan dimuat di sini -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Halaman Upload -->
+            <div class="page" id="uploadPage">
+                <div class="upload-container">
+                    <h2>Buat Postingan Baru</h2>
+                    <div class="upload-wizard">
+                        <div class="upload-step active" id="step1">
+                            <div class="upload-area" id="uploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h3>Unggah Foto atau Video</h3>
+                                <p>Seret dan lepas atau klik untuk memilih file</p>
+                                <input type="file" id="photoUpload" accept="image/*" multiple>
+                                <label for="photoUpload" class="btn-primary">Pilih dari Komputer</label>
+                                <p class="file-info">Format: JPG, PNG, GIF. Maksimal 10MB per foto.</p>
+                            </div>
+                            <div class="upload-preview" id="uploadPreview">
+                                <!-- Preview foto akan ditampilkan di sini -->
+                            </div>
+                        </div>
+                        
+                        <div class="upload-step" id="step2">
+                            <h3>Edit & Filter</h3>
+                            <div class="edit-container">
+                                <div class="image-preview">
+                                    <img id="editImage" src="" alt="Preview">
+                                </div>
+                                <div class="edit-controls">
+                                    <div class="filter-options">
+                                        <h4>Filter</h4>
+                                        <div class="filter-list">
+                                            <button class="filter-btn active" data-filter="none">Normal</button>
+                                            <button class="filter-btn" data-filter="brightness">Terang</button>
+                                            <button class="filter-btn" data-filter="contrast">Kontras</button>
+                                            <button class="filter-btn" data-filter="vintage">Vintage</button>
+                                            <button class="filter-btn" data-filter="blackwhite">Hitam Putih</button>
+                                        </div>
+                                    </div>
+                                    <div class="adjust-options">
+                                        <h4>Penyesuaian</h4>
+                                        <div class="adjust-slider">
+                                            <label>Kecerahan</label>
+                                            <input type="range" id="brightnessSlider" min="0" max="200" value="100">
+                                        </div>
+                                        <div class="adjust-slider">
+                                            <label>Kontras</label>
+                                            <input type="range" id="contrastSlider" min="0" max="200" value="100">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="upload-step" id="step3">
+                            <h3>Detail Postingan</h3>
+                            <div class="post-details">
+                                <div class="form-group">
+                                    <label for="postCaption">Keterangan</label>
+                                    <textarea id="postCaption" placeholder="Tambahkan keterangan..." rows="4"></textarea>
+                                    <div class="char-count"><span id="charCount">0</span>/500</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="postLocation">Lokasi</label>
+                                    <input type="text" id="postLocation" placeholder="Tambahkan lokasi">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Tagar</label>
+                                    <div class="tags-input-container">
+                                        <div class="tags-display" id="tagsDisplay">
+                                            <!-- Tagar akan ditampilkan di sini -->
+                                        </div>
+                                        <input type="text" id="tagInput" placeholder="Tambahkan tagar...">
+                                    </div>
+                                    <p class="input-hint">Tekan Enter atau koma untuk menambah tagar</p>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Pengaturan</label>
+                                    <div class="post-settings">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="allowComments" checked>
+                                            <span>Izinkan komentar</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="hideLikes">
+                                            <span>Sembunyikan jumlah suka</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="saveToAlbum" checked>
+                                            <span>Simpan ke album</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group" id="albumSelectionGroup">
+                                    <label for="postAlbum">Pilih Album</label>
+                                    <select id="postAlbum">
+                                        <option value="">Pilih album...</option>
+                                        <!-- Opsi album akan dimuat di sini -->
+                                    </select>
+                                    <button id="createAlbumBtn" class="btn-secondary">Buat Album Baru</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-nav">
+                        <button id="prevStepBtn" class="btn-secondary" disabled>
+                            <i class="fas fa-arrow-left"></i> Sebelumnya
+                        </button>
+                        <div class="step-indicators">
+                            <span class="step-dot active"></span>
+                            <span class="step-dot"></span>
+                            <span class="step-dot"></span>
+                        </div>
+                        <button id="nextStepBtn" class="btn-primary">
+                            Selanjutnya <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal Postingan -->
+        <div class="modal" id="postModal">
+            <div class="modal-content post-modal">
+                <span class="close-modal">&times;</span>
+                <div class="modal-body">
+                    <div class="post-modal-image">
+                        <img id="modalPostImage" src="" alt="Post Image">
+                    </div>
+                    <div class="post-modal-sidebar">
+                        <div class="post-modal-header">
+                            <div class="post-user">
+                                <img id="modalUserAvatar" src="" alt="User">
+                                <div>
+                                    <h4 id="modalUsername"></h4>
+                                    <p id="modalUserLocation"></p>
+                                </div>
+                            </div>
+                            <button class="icon-btn" id="modalMoreBtn">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="post-modal-caption">
+                            <p id="modalPostCaption"></p>
+                            <div class="post-tags" id="modalPostTags"></div>
+                            <p class="post-time" id="modalPostTime"></p>
+                        </div>
+                        
+                        <div class="post-modal-stats">
+                            <div class="post-actions">
+                                <button class="icon-btn like-btn" id="modalLikeBtn">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <button class="icon-btn" id="modalCommentBtn">
+                                    <i class="far fa-comment"></i>
+                                </button>
+                                <button class="icon-btn" id="modalShareBtn">
+                                    <i class="far fa-paper-plane"></i>
+                                </button>
+                                <button class="icon-btn save-btn" id="modalSaveBtn">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                            <div class="post-likes">
+                                <strong id="modalLikeCount">0</strong> suka
+                            </div>
+                        </div>
+                        
+                        <div class="post-modal-comments">
+                            <h4>Komentar</h4>
+                            <div class="comments-list" id="modalCommentsList">
+                                <!-- Komentar akan dimuat di sini -->
+                            </div>
+                            <div class="add-comment">
+                                <input type="text" id="commentInput" placeholder="Tambahkan komentar...">
+                                <button id="submitCommentBtn" class="btn-text">Kirim</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2023 Instagram Lite. Dibuat dengan <i class="fas fa-heart"></i> untuk menyimpan kenangan.</p>
+            <div class="footer-links">
+                <a href="#">Tentang</a>
+                <a href="#">Bantuan</a>
+                <a href="#">API</a>
+                <a href="#">Privasi</a>
+                <a href="#">Ketentuan</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Notifikasi Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
